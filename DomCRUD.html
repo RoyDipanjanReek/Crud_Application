@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom | CRUD Project</title>
+</head>
+<body style="text-align: center; background-color: burlywood;">
+    <h1>DOM CRUD Project in JS</h1>
+
+    <section class="container" style=" background-color: violet; color: aliceblue; width: max-content;
+    display: flex; flex-direction: column; margin: auto; ">
+        <div class="form" >
+            <div style="padding-top: 20px; text-align: start; padding-left: 10px;">
+                <label for="" >Author Name:</label>
+                <input type="text" id="name" style="width: 90%; margin-top: 5px;">
+            </div>
+            <div style="padding-top: 20px; text-align: start; padding-left: 10px;">
+                <label for="">Book Title:</label>
+                <input type="text"  id="title" style="width: 90%; margin-top: 5px;">
+            </div>
+            <div style="padding-top: 20px; text-align: start; padding-left: 10px;">
+                <label for="">Published Year:</label>
+                <input type="number" id="year" style="width: 90%;margin-top: 5px;">
+            </div>
+            <button class="btn" style="padding: 10px; color: white; background-color: black; font-size: larger; margin-top: 30px; margin-bottom: 20px;">Button</button>
+        </div>
+
+        <section class="table";>
+            <div class="tableSection"style="display: flex;">
+                <div style="padding: 40px;">Name</div>
+                <div style="padding: 40px;">Title</div>
+                <div style="padding: 40px;">Year</div>
+            </div>
+            
+            <section id="bookList"></section>
+        </section>
+    </section>
+    
+</body>
+<script>
+    const input = document.querySelector('input')
+    const name = document.querySelector('#name')
+    const title = document.querySelector('#title')
+    const year = document.querySelector('#year')
+    const table = document.querySelector('.table')
+    const bookList = document.querySelector('#bookList')
+
+
+    const button = document.querySelector('.btn')
+
+    button.addEventListener('click', function(e){
+        e.preventDefault()
+        if(name.value === '' || title.value ==='' || year.value=== ''){
+            console.log('write something here');
+        }else{
+            let table = document.createElement("table")
+            table.innerHTML = `
+            <tr>
+            <th>${name.value}</th>
+            <th>${title.value}</th>
+            <th>${year.value}</th>
+            </tr>
+            `
+            bookList.appendChild(table)
+            name.value = ""
+            title.value = ""
+            year.value = ""
+        }
+        
+        
+    })
+</script>
+</html>
